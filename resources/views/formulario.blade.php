@@ -1,3 +1,6 @@
+<?php
+require_once('assets\templates\web\config\connection.php');
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -476,29 +479,22 @@
                       <th scope="col" style="width: 0%">ID</th>
                       <th scope="col">DESCRIÇÃO</th>
                       <th scope="col">RECURSO</th>
-                      <th scope="col" style="width: 5%">EDITAR</th>
+                      <th scope="col" style="width: 5%">EDITAR/EXCLUIR</th>
                     </tr>
                   </thead>
                   <tbody class="table-body">
+                    <?php 
+                    $dados = pg_query($cn, "select * from dados");
+                    while ($row = pg_fetch_object($dados)) {
+                    ?>
                     <tr>
-                      <th scope="row"></th>
-                      <td></td>
-                      <td></td>
-                      <td><a class="btn btn-primary" href="" role="button"><i class="bi bi-folder"></i></a></td>
+                      <th scope="row"><?php echo $row->id; ?></th>
+                      <td><?php echo $row->descricao; ?></td>
+                      <td><?php echo $row->recurso; ?></td>
+                      <td style="text-align: center"><a class="btn btn-primary" href="" role="button"><i class="bi bi-pencil-square"></i></a><a> </a><a class="btn btn-primary" href="" role="button"><i class="bi bi-trash-fill"></i></a></td>
+                      
                     </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>ex</td>
-                      <td>ex</td>
-                      <td><a class="btn btn-primary" href="" role="button"><i class="bi bi-folder"></i></a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>ex</td>
-                      <td>ex</td>
-                      <td><a class="btn btn-primary" href="" role="button"><i class="bi bi-folder"></i></a></td>
-                    </tr>
-                  
+                    <?php } ?>
                   </tbody>
                 </table>
                 <!-- End Bordered Table -->
@@ -578,31 +574,22 @@
                       <th scope="col">NOME</th>
                       <th scope="col">E-MAIL</th>
                       <th scope="col">TELEFONE</th>
-                      <th scope="col" style="width: 5%">EDITAR</th>
+                      <th scope="col" style="width: 5%">EDITAR/EXCLUIR</th>
                     </tr>
                   </thead>
                   <tbody class="table-body">
+                    <?php 
+                    $atores = pg_query($cn, "select * from atores");
+                    while ($row = pg_fetch_object($atores)) {
+                    ?>
                     <tr>
-                      <th scope="row">1</th>
-                      <td>ex</td>
-                      <td>ex</td>
-                      <td>ex</td>
-                      <td><a class="btn btn-primary" href="" role="button"><i class="bi bi-folder"></i></a></td>
+                      <th scope="row"><?php echo $row->id; ?></th>
+                      <td><?php echo $row->nome; ?></td>
+                      <td><?php echo $row->email; ?></td>
+                      <td><?php echo $row->telefone; ?></td>
+                      <td style="text-align: center"><a class="btn btn-primary" href="" role="button"><i class="bi bi-pencil-square"></i></a><a> </a><a class="btn btn-primary" href="" role="button"><i class="bi bi-trash-fill"></i></a></td>
                     </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>ex</td>
-                      <td>ex</td>
-                      <td>ex</td>
-                      <td><a class="btn btn-primary" href="" role="button"><i class="bi bi-folder"></i></a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>ex</td>
-                      <td>ex</td>
-                      <td>ex</td>
-                      <td><a class="btn btn-primary" href="" role="button"><i class="bi bi-folder"></i></a></td>
-                    </tr>
+                    <?php } ?>
                   </tbody>
                 </table>
                 <!-- End Bordered Table -->
@@ -727,28 +714,21 @@
                       <th scope="col" style="width: 0%">ID</th>
                       <th scope="col">AGENCIAMENTO</th>
                       <th scope="col">DESCRIÇÃO</th>
-                      <th scope="col" style="width: 5%">EDITAR</th>
+                      <th scope="col" style="width: 5%">EDITAR/EXCLUIR</th>
                     </tr>
                   </thead>
                   <tbody class="table-body">
+                    <?php 
+                    $agenciamento = pg_query($cn, "select * from agenciamentos");
+                    while ($row = pg_fetch_object($agenciamento)) {
+                    ?>
                     <tr>
-                      <th scope="row">1</th>
-                      <td>ex</td>
-                      <td>ex</td>
-                      <td><a class="btn btn-primary" href="" role="button"><i class="bi bi-folder"></i></a></td>
+                      <th scope="row"><?php echo $row->id; ?></th>
+                      <td><?php echo $row->exemplo; ?></td>
+                      <td><?php echo $row->descricao; ?></td>
+                      <td style="text-align: center"><a class="btn btn-primary" href="" role="button"><i class="bi bi-pencil-square"></i></a><a> </a><a class="btn btn-primary" href="" role="button"><i class="bi bi-trash-fill"></i></a></td>
                     </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>ex</td>
-                      <td>ex</td>
-                      <td><a class="btn btn-primary" href="" role="button"><i class="bi bi-folder"></i></a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>ex</td>
-                      <td>ex</td>
-                      <td><a class="btn btn-primary" href="" role="button"><i class="bi bi-folder"></i></a></td>
-                    </tr>
+                    <?php }  ?>
                   </tbody>
                 </table>
                 <!-- End Bordered Table -->

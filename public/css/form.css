@@ -637,7 +637,13 @@ h6 {
     margin-right: 8px;
     color: #206bfb;
 }
-.features .feture-tabs .bi.bi-folder {
+.features .feture-tabs .bi.bi-pencil-square {
+    font-size: 18px;
+    color: white;
+    margin: auto;
+}
+.features .feture-tabs .bi.bi-trash-fill {
+    font-size: 18px;
     color: white;
     margin: auto;
 }
