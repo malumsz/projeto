@@ -18,7 +18,7 @@ class Dado extends Model
     ];
 
     //PROPOSITO -->FORMULARIO
-public function formulario(){
+    public function formulario(){
     return $this->belongsTo(Formulario::class);
     }
 }

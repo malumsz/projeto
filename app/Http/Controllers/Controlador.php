@@ -141,6 +141,7 @@ class Controlador extends Controller
            $proposito->baseLegal=$request->baseLegal;
            $proposito->formulario_id =$formulario;
            $proposito->save();
+           return redirect('formulario');
         }
     }
 
@@ -165,6 +166,7 @@ class Controlador extends Controller
            $compartilhamento->acoes=$request->acoes;
            $compartilhamento->formulario_id =$formulario;
            $compartilhamento->save();
+           return redirect('formulario');
         }
     }
 
@@ -190,6 +192,7 @@ class Controlador extends Controller
            $dado->acoes=$request->acoes;
            $dado->formulario_id =$formulario;
            $dado->save();
+           return redirect('formulario');
         }
     }
 
@@ -230,9 +233,12 @@ class Controlador extends Controller
            $atores->formulario_id =$formulario;
            
            $atores->save();
+           return redirect('formulario');
         }
     }
 
+
+        // FORMULARIO AGENCIAMENTO
     public function agenciamento (Request $request){
               
         if(Session::has('loginId')){
@@ -250,6 +256,7 @@ class Controlador extends Controller
            $agenciamentos->descricao=$request->descricao;
            $agenciamentos->formulario_id =$formulario;
            $agenciamentos->save();
+           return redirect('formulario');
         }
     }
 }

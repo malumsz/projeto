@@ -1,3 +1,8 @@
+<?php
+require_once('config/connection.php');
+$result = pg_query($cn, "select * from atores");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -67,13 +72,20 @@
               <p class="fst-italic">
                 Saiba como seus dados pessoais são armazenados, e quem é o operador dessa aplicação:
               </p>
+                <?php
+                while ($row = pg_fetch_object($result)) {
+                ?>
+              <p class="fst-italic">
+                Ator:
+              </p>
               <ul>
-                <li><i class="bi bi-check-circle-fill"></i> O serviço Conecte SUS se compromete a aplicar as medidas técnicas e organizativas aptas a proteger os dados pessoais de acessos não autorizados e de situações de destruição, perda, alteração, comunicação ou difusão de tais dados;</li>
-                <li><i class="bi bi-check-circle-fill"></i> Para a garantia da segurança, serão adotadas soluções que levem em consideração: as técnicas adequadas; os custos de aplicação; a natureza, o âmbito, o contexto e as finalidades do tratamento, e os riscos para os direitos e liberdades do usuário;</li>
-                <li><i class="bi bi-check-circle-fill"></i> O site utiliza criptografia para que os dados sejam transmitidos de forma segura e confidencial, de maneira que a transmissão dos dados entre o servidor e o usuário, e em retroalimentação, ocorra de maneira totalmente cifrada ou encriptada;</li>
-                <li><i class="bi bi-check-circle-fill"></i> No entanto, o site se exime de responsabilidade por culpa exclusiva de terceiro, como em caso de ataque de hackers ou crackers, ou culpa exclusiva do usuário, como no caso em que ele mesmo transfere seus dados a terceiro. O serviço Conecte SUS se compromete, ainda, a comunicar o usuário em prazo adequado caso ocorra algum tipo de violação da segurança de seus dados pessoais que possa lhe causar um alto risco para seus direitos e liberdades pessoais;</li>
-                <li><i class="bi bi-check-circle-fill"></i> A violação de dados pessoais é uma violação de segurança que provoque, de modo acidental ou ilícito, a destruição, a perda, a alteração, a divulgação ou o acesso não autorizado a dados pessoais transmitidos, conservados ou sujeitos a qualquer outro tipo de tratamento;</li>
-                <li><i class="bi bi-check-circle-fill"></i> Por fim, o site se compromete a tratar os dados pessoais do usuário com confidencialidade, dentro dos limites legais;</li>
+                <li><i class="bi bi-check-circle-fill"></i><?php echo $row->nome; ?></li>
+                <b>Proteção de dados: </b><?php echo $row->agencia; ?>
+                <br>
+                <br>
+                <?php
+                }
+                ?>
               </ul>
               <p>
                 

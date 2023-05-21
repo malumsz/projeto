@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,7 +33,7 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.html">TR DESIGN</a></h1>
+      <h1 class="logo"><a href="{{ route ('route_inicio')}}">TR DESIGN</a></h1>
       <!-- logo -->
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -46,12 +47,12 @@
           <li>
             <td><a class="getstarted scrollto" name="logout" href="logout">SAIR</a>
           </li>
-          </td>
-          <thead>
-            <td>{{$data->name}}</td>
-            <br>
-            <td>{{$data->email}}</td>
-          </thead>
+          <div class="login-info">
+            <div class="box">
+              <h6><span class="text">Login: </span>{{$data->name}}</h6>
+            </div>
+            <h6>{{$data->email}}</h6>
+          </div>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -412,7 +413,7 @@
                   <div class="form-floating mb-3">
                     <select class="form-select" id="floatingSelect" aria-label="State">
                       <option selected>Transferência</option>
-                      <option value="1">Compartilamento</option>
+                      <option value="1">Compartilhamento</option>
                       <option value="2">Divulgação</option>
                     </select>
                     <label for="floatingSelect">Campo de seleção</label>
@@ -425,6 +426,7 @@
                     <label for="floatingName">Base Legal - Inserir texto ou link da lei</label>
                   </div>
                 </div>
+                <br>
 
                 <div class="col-12">
                   <div class="form-floating">
@@ -438,7 +440,7 @@
                 <div class="col-12">
                   <div class="form-floating">
                     <textarea class="form-control" placeholder="Address" name="acoes" id="floatingTextarea" style="height: 100px;"></textarea>
-                    <label for="floatingTextarea">Indique as ações ou eventos que levam ao processo de Transferência, Compartilamento ou Divulgação</label>
+                    <label for="floatingTextarea">Indique as ações ou eventos que levam ao processo de Transferência, Compartilhamento ou Divulgação</label>
                   </div>
                 </div>
                 <br>
@@ -464,54 +466,49 @@
 
               <!-- End Tab 3 Content -->
               <!-- Tab 4 Content -->
-
+                <!-- DADOS PESSOAIS -->
               <form class="tab-pane fade show" id="tab4" action="{{route('dadosPessoais')}}" method="POST">
-
+                @csrf
                 <!-- Bordered Table -->
-
-                <table class="table table-bordered">
-                  <thead>
+                <table class="table table-bordered table-hover">
+                  <thead class="table-thread">
                     <tr>
-                      <th scope="col">Descrição</th>
-                      <th scope="col">Recurso</th>
-                      <th scope="col">Visualizar</th>
+                      <th scope="col" style="width: 0%">ID</th>
+                      <th scope="col">DESCRIÇÃO</th>
+                      <th scope="col">RECURSO</th>
+                      <th scope="col" style="width: 5%">EDITAR</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody class="table-body">
                     <tr>
-
-                      <td>Exemplo de texto</td>
-                      <td>Exemplo de texto</td>
+                      <th scope="row"></th>
+                      <td></td>
+                      <td></td>
                       <td><a class="btn btn-primary" href="" role="button"><i class="bi bi-folder"></i></a></td>
-
                     </tr>
                     <tr>
-
-                      <td>Exemplo de texto</td>
-                      <td>Exemplo de texto</td>
+                      <th scope="row">2</th>
+                      <td>ex</td>
+                      <td>ex</td>
                       <td><a class="btn btn-primary" href="" role="button"><i class="bi bi-folder"></i></a></td>
-
                     </tr>
                     <tr>
-
-                      <td>Exemplo de texto</td>
-                      <td>Exemplo de texto</td>
+                      <th scope="row">3</th>
+                      <td>ex</td>
+                      <td>ex</td>
                       <td><a class="btn btn-primary" href="" role="button"><i class="bi bi-folder"></i></a></td>
-
                     </tr>
-
+                  
                   </tbody>
-
                 </table>
                 <!-- End Bordered Table -->
 
-
-
                 <!-- Floating Labels Form -->
-                <br><br>
+                <br>
                 <div class="">
                   <form>
-                    <h3> Novo Dado Pessoal</h3>
+                    <h3> NOVO DADO PESSOAL</h3>
+                    <br>
                     <div class="row g-3">
                       <div class="col-md-6">
                         <div class="form-floating">
@@ -520,7 +517,7 @@
                         </div>
                       </div>
                     </div>
-
+                    <br>
 
                     <div class="col-md-6">
                       <div class="form-floating mb-3">
@@ -535,7 +532,7 @@
                         <label for="floatingTextarea">Recursos para Aquisição dos Dados Pessoais</label>
                       </div>
                     </div>
-
+                    <br>
                     <div class="coleta-manipulacao">
                       <div class="col-12">
                         <div class="form-floating">
@@ -558,8 +555,9 @@
                                   </div>
                                 </div> -->
 
-
+                <br>
                 <div class="text-center">
+
                   <button type="submit" class="btn btn-primary">Salvar</button>
                   <button type="reset" class="btn btn-secondary">Cancelar</button>
                 </div>
@@ -572,49 +570,49 @@
 
               <form class="tab-pane fade show" id="tab5" action="{{route('atores')}}" method="POST">
                 @csrf
-                <table class="table table-bordered">
-                  <thead>
+                <!-- Bordered Table -->
+                <table class="table table-bordered table-hover">
+                  <thead class="table-thread">
                     <tr>
-                      <th scope="col">Nome</th>
-                      <th scope="col">E-mail</th>
-                      <th scope="col">Telefone</th>
-                      <th scope="col">Editar</th>
+                      <th scope="col" style="width: 0%">ID</th>
+                      <th scope="col">NOME</th>
+                      <th scope="col">E-MAIL</th>
+                      <th scope="col">TELEFONE</th>
+                      <th scope="col" style="width: 5%">EDITAR</th>
                     </tr>
                   </thead>
-
-                  <tbody>
+                  <tbody class="table-body">
                     <tr>
-
-                      <td>Exemplo de texto</td>
-                      <td>Exemplo de texto</td>
-                      <td>Exemplo de texto</td>
+                      <th scope="row">1</th>
+                      <td>ex</td>
+                      <td>ex</td>
+                      <td>ex</td>
                       <td><a class="btn btn-primary" href="" role="button"><i class="bi bi-folder"></i></a></td>
-
                     </tr>
                     <tr>
-
-                      <td>Exemplo de texto</td>
-                      <td>Exemplo de texto</td>
-                      <td>Exemplo de texto</td>
+                      <th scope="row">2</th>
+                      <td>ex</td>
+                      <td>ex</td>
+                      <td>ex</td>
                       <td><a class="btn btn-primary" href="" role="button"><i class="bi bi-folder"></i></a></td>
-
                     </tr>
                     <tr>
-
-                      <td>Exemplo de texto</td>
-                      <td>Exemplo de texto</td>
-                      <td>Exemplo de texto</td>
+                      <th scope="row">3</th>
+                      <td>ex</td>
+                      <td>ex</td>
+                      <td>ex</td>
                       <td><a class="btn btn-primary" href="" role="button"><i class="bi bi-folder"></i></a></td>
                     </tr>
                   </tbody>
                 </table>
+                <!-- End Bordered Table -->
 
                 <!--Cadastro Atores-->
 
-                <div class="card">
+                <div class="">
                   <br>
                   <div class="">
-                    <h3> Cadastro de Atores</h3>
+                    <h3> CADASTRO DE ATORES</h3>
                     <br>
                   </div>
 
@@ -629,10 +627,10 @@
                     <div class="col-md-6">
                       <div class="form-floating mb-3">
                         <select class="form-select" id="floatingSelect" aria-label="State" name="tipo">
-                          <option selected>Controlador</option>
-                          <option value="1">Operador</option>
-                          <option value="2">Destinatário</option>
-                          <option value="3">Agência de Proteção de Dados</option>
+                          <option value="1" selected>Controlador</option>
+                          <option value="2">Operador</option>
+                          <option value="3">Destinatário</option>
+                          <option value="4">Agência de Proteção de Dados</option>
                         </select>
                         <label for="floatingSelect">Tipo</label>
                       </div>
@@ -664,7 +662,7 @@
 
                   <div class="font-endereco">
                     <br>
-                    <h4>Endereço</h4>
+                    <h4>ENDEREÇO</h4>
                   </div>
                   <br>
 
@@ -715,55 +713,57 @@
                   <br>
                   <div class="text-center">
                     <button type="submit" class="btn btn-primary">Salvar</button>
+                    <button type="reset" class="btn btn-secondary">Cancelar</button>
                   </div>
                 </div>
               </form><!-- End Tab 5 Content -->
 
               <form class="tab-pane fade show" id="tab6" action="{{route('agenciamento')}}" method="POST"> <!-- Tab 6 Content -->
                 @csrf
-                <table class="table table-bordered">
-                  <thead>
+                <!-- Bordered Table -->
+                <table class="table table-bordered table-hover">
+                  <thead class="table-thread">
                     <tr>
-                      <th scope="col">Descrição</th>
-                      <th scope="col">Recurso</th>
-                      <th scope="col">Visualizar</th>
+                      <th scope="col" style="width: 0%">ID</th>
+                      <th scope="col">AGENCIAMENTO</th>
+                      <th scope="col">DESCRIÇÃO</th>
+                      <th scope="col" style="width: 5%">EDITAR</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody class="table-body">
                     <tr>
-
-                      <td>Exemplo de texto</td>
-                      <td>Exemplo de texto</td>
+                      <th scope="row">1</th>
+                      <td>ex</td>
+                      <td>ex</td>
                       <td><a class="btn btn-primary" href="" role="button"><i class="bi bi-folder"></i></a></td>
-
                     </tr>
                     <tr>
-
-                      <td>Exemplo de texto</td>
-                      <td>Exemplo de texto</td>
+                      <th scope="row">2</th>
+                      <td>ex</td>
+                      <td>ex</td>
                       <td><a class="btn btn-primary" href="" role="button"><i class="bi bi-folder"></i></a></td>
-
                     </tr>
                     <tr>
-
-                      <td>Exemplo de texto</td>
-                      <td>Exemplo de texto</td>
+                      <th scope="row">3</th>
+                      <td>ex</td>
+                      <td>ex</td>
                       <td><a class="btn btn-primary" href="" role="button"><i class="bi bi-folder"></i></a></td>
                     </tr>
                   </tbody>
                 </table>
-
+                <!-- End Bordered Table -->
+                <br>
                 <div class="col-md-6" class="row g-3">
                   <div class="form-floating">
                     <input type="name" class="form-control" id="floatingName" name="exemplo" placeholder="nomeProjeto" name="nomeProjeto">
-                    <label for="floatingName">exemplo</label>
+                    <label for="floatingName">Agenciamento</label>
                   </div>
                 </div>
                 <br>
                 <div class="col-12">
                   <div class="form-floating">
                     <textarea class="form-control" placeholder="descricao" name="descricao" id="floatingTextarea" style="height: 100px;"></textarea>
-                    <label for="floatingTextarea">exemplo</label>
+                    <label for="floatingTextarea">Descrição</label>
                   </div>
                 </div>
                 <br>

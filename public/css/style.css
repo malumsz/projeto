@@ -439,6 +439,7 @@ section {
   color: #fff;
   border-color: #206bfb;
 }*/
+
 .featured-services .icon-box {
   padding: 20px;
   color: #5f687b;
@@ -449,16 +450,18 @@ section {
   height: 100%;
 }
 .featured-services .icon {
-  padding-left: 168px;
-  margin: 0 0 5px 0;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
 }
 .featured-services .icon i {
+  margin: 0 auto;
   color: #5891ff;
   font-size: 36px;
 }
 .featured-services .title {
   text-align: center;
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 15px;
   font-size: 18px;
 }

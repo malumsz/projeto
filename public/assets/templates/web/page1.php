@@ -1,6 +1,6 @@
-<?php 
-  require_once('config/connection.php');
-  $result = pg_query($cn,"select * from compartilhamentos");
+<?php
+require_once('config/connection.php');
+$result = pg_query($cn, "select * from compartilhamentos");
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,28 +64,32 @@
         </div>
 
         <div class="row gy-4">
-          <div class="col-lg-6">       
+          <div class="col-lg-6">
             <img src="assets/img/pag1.png" class="img-fluid rounded-4 mb-4" alt="">
           </div>
           <div class="col-lg-6">
             <div class="content ps-0 ps-lg-5">
+                <?php
+                while ($row = pg_fetch_object($result)) {
+                ?>
               <p class="fst-italic">
                 Seus dados podem ser transferidos, compartilhados ou divulgados em uma situação:
               </p>
               <ul>
-                <?php 
-                  while($row = pg_fetch_object($result)){
-                ?>
                 <li><i class="bi bi-check-circle-fill"></i><?php echo $row->acoes; ?></li>
-                <?php 
+              </ul>
+              <p class="fst-italic">
+                Com as seguintes justificativas:
+              </p>
+              <ul>
+                <li><i class="bi bi-check-circle-fill"></i><?php echo $row->justificativa; ?></li>
+                <br>
+                <br>
+                <?php
                 }
                 ?>
               </ul>
-              
-              
-              <p>
-              
-              </p>
+              <p></p>
             </div>
           </div>
         </div>

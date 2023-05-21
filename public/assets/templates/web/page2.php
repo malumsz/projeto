@@ -72,24 +72,23 @@
               <p class="fst-italic">
                 Veja quais dados pessoais são coletados, a origem desses dados e o proposito do uso: 
               </p>
-              <ul>
                 <?php 
                   while($row = pg_fetch_object($result)){
                 ?>
+              <p class="fst-italic">
+                Dado pessoal: 
+              </p>
+              <ul>
                 <li><i class="bi bi-check-circle-fill"></i><?php echo $row->descricao; ?></li>
+                <b>Origem do dado: </b><?php echo $row->acoes;?>
+                <br>
+                <b>Propósito de uso: </b><?php echo $row->recurso; ?>
+                <br>
+                <br>
                 <?php 
                 }
                 ?>
               </ul>
-              <p>
-                <?php 
-                  while($row = pg_fetch_object($result)){
-                ?>
-                <b>Origem dos Dados:</b><?php echo $row->acoes;?>
-                <?php 
-                }
-                ?>
-              </p>
             </div>
           </div>
         </div>

@@ -32,7 +32,7 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.html">TR DESIGN</a></h1>
+      <h1 class="logo"><a href="{{ route ('route_inicio')}}">TR DESIGN</a></h1>
       <!-- logo -->
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -69,20 +69,20 @@
   </section><!-- End Hero -->
 
   <main id="main">
-
+    
     <!-- ======= Featured Services Section ======= -->
     <section id="featured-services" class="featured-services">
       <div class="container">
 
         <div class="row">
-          <div class="col-lg-4 col-md-6">
+          <div class="col-sm m-3">
             <div class="icon-box">
               <div class="icon"><i class="bi bi-pencil-square"></i></div>
               <h4 class="title"><a href="{{ route ('route_cadastro')}}">CADASTRAR</a></h4>
         
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
+          <div class="col-sm m-3">
             <div class="icon-box">
               <div class="icon"><i class="bi bi-box-arrow-in-right"></i></div>
               <h4 class="title"><a href="{{ route ('route_login')}}">ACESSAR</a></h4>
