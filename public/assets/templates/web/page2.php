@@ -1,4 +1,4 @@
-<?php 
+<?php
   require_once('config/connection.php');
   $result = pg_query($cn,"select * from dados");
 ?>
@@ -14,7 +14,7 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,28 +64,30 @@
         </div>
 
         <div class="row gy-4">
-          <div class="col-lg-6">       
+          <div class="col-lg-6">
             <img src="assets/img/pag2.png" class="img-fluid rounded-4 mb-4" alt="">
           </div>
           <div class="col-lg-6">
             <div class="content ps-0 ps-lg-5">
               <p class="fst-italic">
-                Veja quais dados pessoais são coletados, a origem desses dados e o proposito do uso: 
+                Veja quais dados pessoais são coletados e a origem desses dados:
               </p>
-                <?php 
+                <?php
                   while($row = pg_fetch_object($result)){
                 ?>
               <p class="fst-italic">
-                Dado pessoal: 
+                Dado pessoal:
               </p>
               <ul>
                 <li><i class="bi bi-check-circle-fill"></i><?php echo $row->descricao; ?></li>
-                <b>Origem do dado: </b><?php echo $row->acoes;?>
+                <b>Detalhamento: </b><?php echo $row->detalhamento;?>
                 <br>
-                <b>Propósito de uso: </b><?php echo $row->recurso; ?>
+                <b>Recurso: </b><?php echo $row->recurso; ?>
+                <br>
+                <b>Ações: </b><?php echo $row->acoes; ?>
                 <br>
                 <br>
-                <?php 
+                <?php
                 }
                 ?>
               </ul>

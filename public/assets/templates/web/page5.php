@@ -1,6 +1,6 @@
 <?php
-require_once('config/connection.php');
-$result = pg_query($cn, "select * from propositos");
+  require_once('config/connection.php');
+  $result = pg_query($cn,"select * from atores");
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +10,7 @@ $result = pg_query($cn, "select * from propositos");
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Propósito de uso</title>
+  <title>Atores</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -60,24 +60,31 @@ $result = pg_query($cn, "select * from propositos");
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <h2>Propósito de uso</h2>
+          <h2>Atores</h2>
         </div>
 
         <div class="row gy-4">
           <div class="col-lg-6">
-            <img src="assets/img/pag3.png" class="img-fluid rounded-4 mb-4" alt="">
+            <img src="assets/img/pag2.png" class="img-fluid rounded-4 mb-4" alt="">
           </div>
           <div class="col-lg-6">
             <div class="content ps-0 ps-lg-5">
               <p class="fst-italic">
-                Veja quais os propósitos de uso dos seus dados pessoais:
+                Saiba como seus dados pessoais são armazenados e quem é o operador dessa aplicação.
+              </p>
+                <?php
+                  while($row = pg_fetch_object($result)){
+                ?>
+              <p class="fst-italic">
+                Ator:
               </p>
               <ul>
-                <?php
-                while ($row = pg_fetch_object($result)) {
-                ?>
-                <li><i class="bi bi-check-circle-fill"></i><?php echo $row->descricao; ?></li>
-                <b>Base legal: </b><?php echo $row->baseLegal;?>
+                <li><i class="bi bi-check-circle-fill"></i><?php echo $row->nome; ?></li>
+                <b>E-mail: </b><?php echo $row->email;?>
+                <br>
+                <b>Telefone: </b><?php echo $row->telefone; ?>
+                <br>
+                <b>Agência: </b><?php echo $row->agencia; ?>
                 <br>
                 <br>
                 <?php

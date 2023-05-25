@@ -1,6 +1,6 @@
 <?php
 require_once('config/connection.php');
-$result = pg_query($cn, "select * from atores");
+$result = pg_query($cn, "select * from agenciamentos");
 ?>
 
 <!DOCTYPE html>
@@ -10,11 +10,11 @@ $result = pg_query($cn, "select * from atores");
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title> Seus Dados Pessoais Armazenados de Forma Segura</title>
+  <title>Ação/Negociação</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
-  
+
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -60,27 +60,25 @@ $result = pg_query($cn, "select * from atores");
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <h2>Seus Dados Pessoais Armazenados de Forma Segura</h2>
+          <h2>Ação/Negociação</h2>
         </div>
 
         <div class="row gy-4">
-          <div class="col-lg-6">       
+          <div class="col-lg-6">
             <img src="assets/img/pag4.png" class="img-fluid rounded-4 mb-4" alt="">
           </div>
           <div class="col-lg-6">
             <div class="content ps-0 ps-lg-5">
               <p class="fst-italic">
-                Saiba como seus dados pessoais são armazenados, e quem é o operador dessa aplicação:
+                Saiba como seus dados pessoais são agenciados, e suas ações e negociações:
               </p>
                 <?php
                 while ($row = pg_fetch_object($result)) {
                 ?>
-              <p class="fst-italic">
-                Ator:
-              </p>
+              <br>
               <ul>
-                <li><i class="bi bi-check-circle-fill"></i><?php echo $row->nome; ?></li>
-                <b>Proteção de dados: </b><?php echo $row->agencia; ?>
+                <li><i class="bi bi-check-circle-fill"></i><?php echo $row->titulo; ?></li>
+                <b>Descrição: </b><?php echo $row->descricao; ?>
                 <br>
                 <br>
                 <?php
@@ -88,7 +86,7 @@ $result = pg_query($cn, "select * from atores");
                 ?>
               </ul>
               <p>
-                
+
               </p>
             </div>
           </div>
