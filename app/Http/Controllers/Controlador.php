@@ -9,7 +9,6 @@ use App\Models\Compartilhamento;
 use App\Models\Dado;
 use App\Models\Ator;
 use App\Models\Agenciamento;
-use public\assets\templates\web;
 
 use Hash;
 use Illuminate\Support\Facades\Auth;
@@ -24,10 +23,10 @@ class Controlador extends Controller
 
     public function cadastro ()
     {
-      
+
         return view('cadastro');
     }
-    
+
     public function login ()
     {
         return view('login');
@@ -36,13 +35,13 @@ class Controlador extends Controller
     // ------- CADASTRO -----
 
     public function cadastroUsuario (Request $request){
-         $request->validate([
+            $request->validate([
             'name'=> 'required',
             'email'=>'required|email|unique:cadastros',
             'password'=>'required|min:6|max:12',
             'empresa'=>'required'
          ]);
- 
+
          $cadastro = new Cadastro();
          $cadastro->name=$request->name;
          $cadastro->email=$request->email;
@@ -59,7 +58,7 @@ class Controlador extends Controller
 
 
         // ------- lOGIN -----
-        
+
          public function loginUsuario(Request $request){
             $request->validate([
                 'email'=>'required|email',
@@ -79,7 +78,7 @@ class Controlador extends Controller
                 return back()->with('fail', 'Email não registrado');
              }
          }
-        
+
 
          // ------- VIEW FORMULARIO -----
 
@@ -87,7 +86,7 @@ class Controlador extends Controller
     {
         $data = array();
         if(Session::has('loginId')){
-            $data = Cadastro::where('id', '=', Session::get('loginId'))->first();  
+            $data = Cadastro::where('id', '=', Session::get('loginId'))->first();
         }
 
         return view('formulario', compact('data'));
@@ -103,7 +102,7 @@ class Controlador extends Controller
 
   // ------- SAVE SECTION "DADOS DO PROJETO" -----
     public function formularioUsuario (Request $request){
-        
+
          if(Session::has('loginId')){
             $request->validate([
                 'nomeProjeto'=> 'required',
@@ -122,57 +121,62 @@ class Controlador extends Controller
          }
 
      }
-     
 
-     // FORMULARIO PROPÓSITO DE USO 
+
+     // FORMULARIO PROPÓSITO DE USO
      public function propositoDeUso (Request $request){
-              
+
         if(Session::has('loginId')){
 
            $request->validate([
                'descricao'=>'required',
+               'baseLegal'=>'required',
+               'file'=> 'required',
             ]);
 
             $formulario = new Formulario();
             $formulario = Formulario::latest()->pluck('id')->first();
-            
+
            $proposito = new Proposito();
            $proposito->descricao=$request->descricao;
            $proposito->baseLegal=$request->baseLegal;
+           $proposito->file=$request->file;
            $proposito->formulario_id =$formulario;
            $proposito->save();
            return redirect('formulario');
         }
     }
 
-    // FORMULARIO COMPARTILHAMENTO  
+    // FORMULARIO COMPARTILHAMENTO
     public function compartilhamento (Request $request){
-              
+
         if(Session::has('loginId')){
 
            $request->validate([
                'justificativa'=>'required',
                'baseLegal'=>'required',
                'acoes'=>'required',
+               'file'=>'required',
 
             ]);
 
             $formulario = new Formulario();
             $formulario = Formulario::latest()->pluck('id')->first();
-            
+
            $compartilhamento = new Compartilhamento();
            $compartilhamento->justificativa=$request->justificativa;
            $compartilhamento->baseLegal=$request->baseLegal;
            $compartilhamento->acoes=$request->acoes;
+           $compartilhamento->file=$request->file;
            $compartilhamento->formulario_id =$formulario;
            $compartilhamento->save();
            return redirect('formulario');
         }
     }
 
-     // FORMULARIO DADOS PESSOAIS 
+     // FORMULARIO DADOS PESSOAIS
      public function dadosPessoais (Request $request){
-              
+
         if(Session::has('loginId')){
 
            $request->validate([
@@ -184,7 +188,7 @@ class Controlador extends Controller
 
             $formulario = new Formulario();
             $formulario = Formulario::latest()->pluck('id')->first();
-            
+
            $dado = new Dado();
            $dado->descricao=$request->descricao;
            $dado->detalhamento=$request->detalhamento;
@@ -196,9 +200,9 @@ class Controlador extends Controller
         }
     }
 
-    // FORMULARIO ATORES 
+    // FORMULARIO ATORES
     public function atores (Request $request){
-              
+
         if(Session::has('loginId')){
 
            $request->validate([
@@ -217,7 +221,7 @@ class Controlador extends Controller
 
             $formulario = new Formulario();
             $formulario = Formulario::latest()->pluck('id')->first();
-            
+
            $atores = new Ator();
            $atores->nome=$request->nome;
            $atores->email=$request->email;
@@ -231,7 +235,7 @@ class Controlador extends Controller
            $atores->pais=$request->pais;
            $atores->tipo = $request->tipo;
            $atores->formulario_id =$formulario;
-           
+
            $atores->save();
            return redirect('formulario');
         }
@@ -240,19 +244,19 @@ class Controlador extends Controller
 
         // FORMULARIO AGENCIAMENTO
     public function agenciamento (Request $request){
-              
+
         if(Session::has('loginId')){
 
            $request->validate([
-            'exemplo'=>'required',
-            'descricao'=>'required',      
+            'titulo'=>'required',
+            'descricao'=>'required',
             ]);
 
             $formulario = new Formulario();
             $formulario = Formulario::latest()->pluck('id')->first();
-            
+
            $agenciamentos = new Agenciamento();
-           $agenciamentos->exemplo=$request->exemplo;
+           $agenciamentos->titulo=$request->titulo;
            $agenciamentos->descricao=$request->descricao;
            $agenciamentos->formulario_id =$formulario;
            $agenciamentos->save();
