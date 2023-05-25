@@ -326,6 +326,18 @@ require_once('assets\templates\web\config\connection.php');
                 };
               </script>
 
+                <div class="card">
+                    <div class="card-body">
+                    <br>
+                    <p class="card-text">Selecione imagens ou vídeos que mostram em que momento o usuário autoriza a Coleta, Manipulação, Transferência, Compartilhamento ou Divulgação dos Dados Pessoais.</p>
+                    <br>
+                    <div class="input-group">
+                        <input type="file" class="form-control" name="file" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                        <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Adicionar</button>
+                    </div>
+                    </div>
+                </div>
+
               <!--   <div class="text-center">
                           <button type="submit" class="btn btn-primary">Documentação</button>
                         </div>
@@ -342,8 +354,8 @@ require_once('assets\templates\web\config\connection.php');
                               <div class="testimonial-item">
                                 <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
                                 <h3>Saul Goodman</h3>
-                                
-                                
+
+
                               </div>
                             </div>
 
@@ -351,8 +363,8 @@ require_once('assets\templates\web\config\connection.php');
                               <div class="testimonial-item">
                                 <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
                                 <h3>Sara Wilsson</h3>
-                                
-                                
+
+
                               </div>
                             </div>
 
@@ -360,8 +372,8 @@ require_once('assets\templates\web\config\connection.php');
                               <div class="testimonial-item">
                                 <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
                                 <h3>Jena Karlis</h3>
-                                
-                                
+
+
                               </div>
                             </div>
 
@@ -369,8 +381,8 @@ require_once('assets\templates\web\config\connection.php');
                               <div class="testimonial-item">
                                 <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
                                 <h3>Matt Brandon</h3>
-                                
-                                
+
+
                               </div>
                             </div>
 
@@ -378,14 +390,14 @@ require_once('assets\templates\web\config\connection.php');
                               <div class="testimonial-item">
                                 <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
                                 <h3>John Larson</h3>
-                                
-                               
+
+
                               </div>
                             </div>
 
                           </div>
                           <div class="swiper-pagination"></div>
-                        </div> 
+                        </div>
 
                       </div>
 
@@ -448,18 +460,17 @@ require_once('assets\templates\web\config\connection.php');
                 </div>
                 <br>
 
-
-                <!--    <div class="card">
-                          <div class="card-body">
-                            <br>
-                            <p class="card-text">Selecione imagens ou vídeos que mostram em que momento o usuário autoriza a Coleta, Manipulação, Transferência, Compartilhamento ou Divulgação dos Dados Pessoais.</p>
-                            <br>
-                            <div class="input-group">
-                              <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                              <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Adicionar</button>
-                            </div>
-                          </div>
-                        </div>  -->
+                <div class="card">
+                    <div class="card-body">
+                      <br>
+                      <p class="card-text">Selecione imagens ou vídeos que mostram em que momento o usuário autoriza a Coleta, Manipulação, Transferência, Compartilhamento ou Divulgação dos Dados Pessoais.</p>
+                      <br>
+                      <div class="input-group">
+                        <input type="file" class="form-control" name="file" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                        <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Adicionar</button>
+                      </div>
+                    </div>
+                  </div>
 
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary">Salvar</button>
@@ -483,7 +494,7 @@ require_once('assets\templates\web\config\connection.php');
                     </tr>
                   </thead>
                   <tbody class="table-body">
-                    <?php 
+                    <?php
                     $dados = pg_query($cn, "select * from dados");
                     while ($row = pg_fetch_object($dados)) {
                     ?>
@@ -492,7 +503,7 @@ require_once('assets\templates\web\config\connection.php');
                       <td><?php echo $row->descricao; ?></td>
                       <td><?php echo $row->recurso; ?></td>
                       <td style="text-align: center"><a class="btn btn-primary" href="" role="button"><i class="bi bi-pencil-square"></i></a><a> </a><a class="btn btn-primary" href="" role="button"><i class="bi bi-trash-fill"></i></a></td>
-                      
+
                     </tr>
                     <?php } ?>
                   </tbody>
@@ -578,7 +589,7 @@ require_once('assets\templates\web\config\connection.php');
                     </tr>
                   </thead>
                   <tbody class="table-body">
-                    <?php 
+                    <?php
                     $atores = pg_query($cn, "select * from atores");
                     while ($row = pg_fetch_object($atores)) {
                     ?>
@@ -718,13 +729,13 @@ require_once('assets\templates\web\config\connection.php');
                     </tr>
                   </thead>
                   <tbody class="table-body">
-                    <?php 
+                    <?php
                     $agenciamento = pg_query($cn, "select * from agenciamentos");
                     while ($row = pg_fetch_object($agenciamento)) {
                     ?>
                     <tr>
                       <th scope="row"><?php echo $row->id; ?></th>
-                      <td><?php echo $row->exemplo; ?></td>
+                      <td><?php echo $row->titulo; ?></td>
                       <td><?php echo $row->descricao; ?></td>
                       <td style="text-align: center"><a class="btn btn-primary" href="" role="button"><i class="bi bi-pencil-square"></i></a><a> </a><a class="btn btn-primary" href="" role="button"><i class="bi bi-trash-fill"></i></a></td>
                     </tr>
@@ -735,8 +746,8 @@ require_once('assets\templates\web\config\connection.php');
                 <br>
                 <div class="col-md-6" class="row g-3">
                   <div class="form-floating">
-                    <input type="name" class="form-control" id="floatingName" name="exemplo" placeholder="nomeProjeto" name="nomeProjeto">
-                    <label for="floatingName">Agenciamento</label>
+                    <input type="name" class="form-control" id="floatingName" name="titulo" placeholder="nomeProjeto" name="nomeProjeto">
+                    <label for="floatingName">Título</label>
                   </div>
                 </div>
                 <br>
