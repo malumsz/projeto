@@ -13,7 +13,8 @@ class Compartilhamento extends Model
     protected $fillable = [
         'justificativa',
         'baseLegal',
-        'acoes',     
+        'acoes',
+        'file',
     ];
 
     //PROPOSITO -->FORMULARIO

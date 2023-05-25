@@ -11,12 +11,12 @@ class Agenciamento extends Model
     protected $table = 'agenciamentos';
     protected $connection = 'pgsql';
     protected $fillable = [
-        'exemplo',
+        'titulo',
         'descricao',
-        
+
     ];
 
-    
+
 public function formulario(){
     return $this->belongsTo(Formulario::class);
     }
