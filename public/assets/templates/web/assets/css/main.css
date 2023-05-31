@@ -644,6 +644,15 @@ section {
   position: relative;
 }
 
+.about ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about i {
+  color: var(--color-primary);
+}
+
 .about .content ul i {
   position: absolute;
   font-size: 20px;
