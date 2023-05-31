@@ -1,6 +1,10 @@
 <?php
   require_once('config/connection.php');
+<<<<<<< HEAD
+  $result = pg_query($cn,"select * from compartilhamentos");
+=======
   $result = pg_query($cn,"select * from atores");
+>>>>>>> 3c0ad53bc7a01a679210f88369d7294750ff38e8
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +14,11 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
+<<<<<<< HEAD
+  <title>Compartilhamento de Informações</title>
+=======
   <title>Atores</title>
+>>>>>>> 3c0ad53bc7a01a679210f88369d7294750ff38e8
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -39,7 +47,11 @@
 
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
       <a href="index.php" class="logo d-flex align-items-center">
+<<<<<<< HEAD
+        <h1>Compartilhamento de Dados<span>.</span></h1>
+=======
         <h1><span></span></h1>
+>>>>>>> 3c0ad53bc7a01a679210f88369d7294750ff38e8
       </a>
       <nav id="navbar" class="navbar">
         <ul>
@@ -59,6 +71,11 @@
     <section id="about" class="about">
       <div class="container" data-aos="fade-up">
 
+<<<<<<< HEAD
+        <div class="row gy-4">
+          <div class="col-lg-6">
+            <img src="assets/img/pag1.png" class="img-fluid rounded-4 mb-4" alt="">
+=======
         <div class="section-header">
           <h2>Atores</h2>
         </div>
@@ -66,10 +83,21 @@
         <div class="row gy-4">
           <div class="col-lg-6">
             <img src="assets/img/pag2.png" class="img-fluid rounded-4 mb-4" alt="">
+>>>>>>> 3c0ad53bc7a01a679210f88369d7294750ff38e8
           </div>
           <div class="col-lg-6">
             <div class="content ps-0 ps-lg-5">
               <p class="fst-italic">
+<<<<<<< HEAD
+                Compartilhamento em favor da Administração Pública. Seus dados serão compartilhados com os seguintes destinatários:
+              </p>
+                <?php
+                  $result = pg_query($cn,"select * from compartilhamentos");
+                  while($row = pg_fetch_object($result)){
+                ?>
+              <ul>
+                <li><i class="bi bi-check-circle-fill"></i><?php echo $row->acoes; ?></li>
+=======
                 Saiba como seus dados pessoais são armazenados e quem é o operador dessa aplicação.
               </p>
                 <?php
@@ -87,14 +115,53 @@
                 <b>Agência: </b><?php echo $row->agencia; ?>
                 <br>
                 <br>
+>>>>>>> 3c0ad53bc7a01a679210f88369d7294750ff38e8
                 <?php
                 }
                 ?>
               </ul>
+<<<<<<< HEAD
+              <p class="fst-italic">
+                Acesse a seção de empresas e pessoas para ter acesso aos dados cadastrais dos destinatários.
+              </p>
+              <p class="fst-italic">
+                Motivo do compartilhamento de seus dados.
+              </p>
+                <?php
+                  $result = pg_query($cn,"select * from compartilhamentos");
+                  while($row = pg_fetch_object($result)){
+                ?>
+              <ul>
+                <li><i class="bi bi-check-circle-fill"></i><?php echo $row->justificativa; ?></li>
+              </ul>
+                <?php
+                }
+                ?>
+=======
+>>>>>>> 3c0ad53bc7a01a679210f88369d7294750ff38e8
             </div>
           </div>
         </div>
 
+<<<<<<< HEAD
+        <div class="row gy-4">
+          <div class="col-lg-12">
+            <p><b>Base legal para o compartilhamento: </b></p>
+            <?php
+            $result = pg_query($cn,"select * from compartilhamentos");
+            while($row = pg_fetch_object($result)){
+            ?>
+            <ul>
+              <li><i class="bi bi-check-circle-fill"></i> <?php echo $row->baseLegal; ?></li>
+            </ul>
+            <?php
+            }
+            ?>
+          </div>
+        </div>
+
+=======
+>>>>>>> 3c0ad53bc7a01a679210f88369d7294750ff38e8
       </div>
     </section>
 

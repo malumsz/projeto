@@ -1,6 +1,10 @@
 <?php
 require_once('config/connection.php');
+<<<<<<< HEAD
+$result = pg_query($cn, "select * from atores");
+=======
 $result = pg_query($cn, "select * from propositos");
+>>>>>>> 3c0ad53bc7a01a679210f88369d7294750ff38e8
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +14,11 @@ $result = pg_query($cn, "select * from propositos");
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
+<<<<<<< HEAD
+  <title>Pessoas e Empresas</title>
+=======
   <title>Propósito de uso</title>
+>>>>>>> 3c0ad53bc7a01a679210f88369d7294750ff38e8
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -39,7 +47,7 @@ $result = pg_query($cn, "select * from propositos");
 
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
       <a href="index.php" class="logo d-flex align-items-center">
-        <h1><span></span></h1>
+        <h1>Pessoas e Empresas<span>.</span></h1>
       </a>
       <nav id="navbar" class="navbar">
         <ul>
@@ -60,7 +68,11 @@ $result = pg_query($cn, "select * from propositos");
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
+<<<<<<< HEAD
+          <h2>Empresas e pessoas que manipulam seus dados</h2>
+=======
           <h2>Propósito de uso</h2>
+>>>>>>> 3c0ad53bc7a01a679210f88369d7294750ff38e8
         </div>
 
         <div class="row gy-4">
@@ -70,6 +82,15 @@ $result = pg_query($cn, "select * from propositos");
           <div class="col-lg-6">
             <div class="content ps-0 ps-lg-5">
               <p class="fst-italic">
+<<<<<<< HEAD
+                Para essa informação, é importante entender:
+              </p>
+              <ul>
+                <li><i class="bi bi-check-circle-fill"></i> <b>Controladores:</b> Quem define o objetivo da manipulação dos dados.</li>
+                <li><i class="bi bi-check-circle-fill"></i> <b>Operadores e/ou Processadores:</b> Empresas com recusos de computação que executam as ações de processar os dados pessoais.</li>
+                <li><i class="bi bi-check-circle-fill"></i> <b>Destinatários:</b> Empresas ou pessoas que recebem dados pessoais compartilhados pelos controladores.</li>
+                <li><i class="bi bi-check-circle-fill"></i> <b>Agência de Proteção</b>:</b> Agência de Proteção governamental que controla a manipulação de dados.</li>
+=======
                 Veja quais os propósitos de uso dos seus dados pessoais:
               </p>
               <ul>
@@ -83,9 +104,37 @@ $result = pg_query($cn, "select * from propositos");
                 <?php
                 }
                 ?>
+>>>>>>> 3c0ad53bc7a01a679210f88369d7294750ff38e8
               </ul>
             </div>
           </div>
+        </div>
+
+        <div class="row gy-4">
+          <?php
+          while ($row = pg_fetch_object($result)) {
+          ?>
+          <div class="card flex-row">
+            <div class="card-body">
+              <h5 class="card-title"><i class="bi bi-check-circle-fill"></i> <?php echo $row->nome; ?></h5>
+              <p class="card-text">
+                <b>Tipo:</b> <?php
+                            if ($row->tipo == 1){ echo "Controlador";}
+                            elseif ($row->tipo == 2){ echo "Operador";}
+                            elseif ($row->tipo == 3){ echo "Destinatário";}
+                            elseif ($row->tipo == 4){ echo "Agência de Proteção de Dados";}
+                            ?><br>
+                <b>Endereço: </b> <?php echo $row->rua; echo ", "; echo "nº: ";echo $row->numero;echo ", ";echo $row->cidade;echo ", ";echo $row->estado;echo ", ";echo $row->pais;echo ", "; echo "CEP: "; echo $row->codigoPostal;?><br>
+                <b>Telefone: </b> <?php echo $row->telefone; ?><br>
+                <b>E-mail: </b> <?php echo $row->email; ?><br>
+                <b>Responsável: </b> <?php echo $row->nome; ?><br>
+                <b>Escritório de Proteção: </b> <?php echo $row->agencia; ?> <br>
+
+            </div>
+          </div>
+          <?php
+          }
+          ?>
         </div>
 
       </div>

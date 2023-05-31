@@ -56,8 +56,8 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="service-item position-relative">
 
-                            <h3>Propósito de uso</h3>
-                            <p>Veja quais os propósitos de uso dos seus dados pessoais.</p>
+                            <h3>Pessoas e Empresas</h3>
+                            <p>Saiba quem são as pessoas ou empresas que manipulam seus dados.</p>
                             <a href="page3.php" class="readmore stretched-link">Saiba mais <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div><!-- End Service Item -->
@@ -65,8 +65,8 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="service-item  position-relative">
 
-                            <h3>Compartilhamento de Informações</h3>
-                            <p>Veja com quem compartilhamos suas informações e motivo pelo qual compartilhamos.</p>
+                            <h3>Propósitos de uso</h3>
+                            <p>Saiba os objetivos de uso de seus dados pessoais.</p>
                             <a href="page1.php" class="readmore stretched-link">Saiba mais <i class="bi bi-arrow-right"></i></a>
                         </div>
                     </div><!-- End Service Item -->
@@ -80,24 +80,23 @@
                         </div>
                     </div><!-- End Service Item -->
 
-                    <div class="col-lg-6 col-md-6">
-                        <div class="service-item position-relative">
+          <div class="col-lg-6 col-md-6">
+            <div class="service-item position-relative">
+              
+              <h3>Direitos e deveres</h3>
+              <p>Veja quais os direitos e deveres do usuário sobre seus dados pessoais.</p>
+              <a href="page3.php" class="readmore stretched-link">Saiba mais <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div><!-- End Service Item -->
 
-                            <h3>Atores</h3>
-                            <p>Saiba como seus dados pessoais são armazenados e quem é o operador dessa aplicação.</p>
-                            <a href="page5.php" class="readmore stretched-link">Saiba mais <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div><!-- End Service Item -->
-
-
-                    <div class="col-lg-6 col-md-6">
-                        <div class="service-item position-relative">
-
-                            <h3>Ação/Negociação</h3>
-                            <p>Saiba como seus dados pessoais são agenciados, e suas ações e negociações.</p>
-                            <a href="page4.php" class="readmore stretched-link">Saiba mais <i class="bi bi-arrow-right"></i></a>
-                        </div>
-                    </div><!-- End Service Item -->
+          <div class="col-lg-6 col-md-6">
+            <div class="service-item position-relative">
+              
+              <h3>Seus dados pessoais armazenados de forma segura</h3>
+              <p>Saiba como seus dados pessoais são armazenados, e quem é o operador dessa aplicação.</p>
+              <a href="page4.php" class="readmore stretched-link">Saiba mais <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div><!-- End Service Item -->
 
                 </div>
 

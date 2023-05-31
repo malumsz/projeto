@@ -10,7 +10,11 @@ $result = pg_query($cn, "select * from agenciamentos");
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
+<<<<<<< HEAD
+  <title>Contato</title>
+=======
   <title>Ação/Negociação</title>
+>>>>>>> 3c0ad53bc7a01a679210f88369d7294750ff38e8
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -39,7 +43,7 @@ $result = pg_query($cn, "select * from agenciamentos");
 
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
       <a href="index.php" class="logo d-flex align-items-center">
-        <h1><span></span></h1>
+        <h1>Modelo de Transparência de Dados Pessoais<span>.</span></h1>
       </a>
       <nav id="navbar" class="navbar">
         <ul>
@@ -60,7 +64,11 @@ $result = pg_query($cn, "select * from agenciamentos");
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
+<<<<<<< HEAD
+          <h2>Entre em contato em casos de dúvidas ou requisições</h2>
+=======
           <h2>Ação/Negociação</h2>
+>>>>>>> 3c0ad53bc7a01a679210f88369d7294750ff38e8
         </div>
 
         <div class="row gy-4">
@@ -70,17 +78,26 @@ $result = pg_query($cn, "select * from agenciamentos");
           <div class="col-lg-6">
             <div class="content ps-0 ps-lg-5">
               <p class="fst-italic">
+<<<<<<< HEAD
+              Canal ou canais de atendimento:
+=======
                 Saiba como seus dados pessoais são agenciados, e suas ações e negociações:
+>>>>>>> 3c0ad53bc7a01a679210f88369d7294750ff38e8
               </p>
                 <?php
                 while ($row = pg_fetch_object($result)) {
                 ?>
+<<<<<<< HEAD
+              <ul>
+                <li><i class="bi bi-check-circle-fill"></i><?php echo $row->titulo;?></li>
+=======
               <br>
               <ul>
                 <li><i class="bi bi-check-circle-fill"></i><?php echo $row->titulo; ?></li>
                 <b>Descrição: </b><?php echo $row->descricao; ?>
                 <br>
                 <br>
+>>>>>>> 3c0ad53bc7a01a679210f88369d7294750ff38e8
                 <?php
                 }
                 ?>

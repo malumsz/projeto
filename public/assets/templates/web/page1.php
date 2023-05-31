@@ -1,6 +1,6 @@
 <?php
 require_once('config/connection.php');
-$result = pg_query($cn, "select * from compartilhamentos");
+$result = pg_query($cn, "select * from propositos");
 ?>
 
 <!DOCTYPE html>
@@ -10,7 +10,7 @@ $result = pg_query($cn, "select * from compartilhamentos");
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Compartilhamento de Informações</title>
+  <title>Propósito de uso</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -39,7 +39,7 @@ $result = pg_query($cn, "select * from compartilhamentos");
 
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
       <a href="index.php" class="logo d-flex align-items-center">
-        <h1><span></span></h1>
+        <h1>Propósito de uso<span>.</span></h1>
       </a>
       <nav id="navbar" class="navbar">
         <ul>
@@ -60,7 +60,7 @@ $result = pg_query($cn, "select * from compartilhamentos");
       <div class="container" data-aos="fade-up">
 
         <div class="section-header">
-          <h2>Compartilhamento de Informações</h2>
+          <h2>Seus dados pessoais serão utilizados para os seguintes propósitos:</h2>
         </div>
 
         <div class="row gy-4">
@@ -72,27 +72,16 @@ $result = pg_query($cn, "select * from compartilhamentos");
                 <?php
                 while ($row = pg_fetch_object($result)) {
                 ?>
-              <p class="fst-italic">
-                Seus dados podem ser transferidos, compartilhados ou divulgados em uma situação:
-              </p>
               <ul>
-                <li><i class="bi bi-check-circle-fill"></i><?php echo $row->acoes; ?></li>
+                <li><i class="bi bi-check-circle-fill"></i><?php echo $row->descricao; ?></li>
               </ul>
-              <p class="fst-italic">
-                Com as seguintes justificativas:
-              </p>
-              <ul>
-                <li><i class="bi bi-check-circle-fill"></i><?php echo $row->justificativa; ?></li>
-                <br>
-                <br>
-                <?php
-                }
-                ?>
-              </ul>
-              <p></p>
+              <?php
+              }
+              ?>
             </div>
           </div>
         </div>
+        
 
       </div>
     </section>
